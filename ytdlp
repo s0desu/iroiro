@@ -3,46 +3,32 @@
 #Set video save path must include /
 cd /storage/emulated/0/Download/
 
-function function_1() {
-		echo "1: saikougashitsu no mp4"
-		echo "2:	saikouonnshitsu no mp3"
-		echo "3: saikouonnshitsu no wav"
-}
-
-function_1
-
+echo "1: saikougashitsu no mp4"
+echo "2: saikouonnshitsu no mp3"
+echo "3: saikouonnshitsu no wav"
 read  -p " -> " SELECT
 
-function function_2() {
-		echo "URL wo nyuuryoku shite kudasai"
-}
-
-function_2
-
+echo "URL wo nyuuryoku shite kudasai"
 read  -p " -> " URL
 
 case "$SELECT" in
 	1)
-    yt-dlp --console-title --embed-thumbnail --embed-subs --sub-langs "ja" --no-write-auto-subs -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
-		;;
+	yt-dlp --console-title --embed-thumbnail --embed-subs --sub-langs "ja" --no-write-auto-subs -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
+	;;
 	2)
-    function TITLE() {
-        yt-dlp --get-title {URL}
-    }
-    yt-dlp --console-title  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
-    ffmpeg ${TITLE}.mp4 ${TITLE}.mp3
-    rm ${TITLE}.mp4
-		;;
+	function TITLE() {
+	yt-dlp --get-title {URL}
+	}
+	yt-dlp --console-title  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
+	ffmpeg ${TITLE}.mp4 ${TITLE}.mp3
+	rm ${TITLE}.mp4
+	;;
 	3)
-		function TITLE() {
-        yt-dlp --get-title {URL}
-    }
-    yt-dlp --console-title  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
-    ffmpeg ${TITLE}.mp4 ${TITLE}.wav
-    rm ${TITLE}.mp4
-		;;
+	function TITLE() {
+	yt-dlp --get-title {URL}
+	}
+	yt-dlp --console-title  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
+	ffmpeg ${TITLE}.mp4 ${TITLE}.wav
+	rm ${TITLE}.mp4
+	;;
 esac
-
-
-
-

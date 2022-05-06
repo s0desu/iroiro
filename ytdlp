@@ -18,7 +18,7 @@ case "$SELECT" in
       2)
 	function TITLE {
             yt-dlp --get-title ${URL}
-	}
+            }
 	yt-dlp --console-title  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
 	ffmpeg ${TITLE}.mp4 ${TITLE}.mp3
 	rm ${TITLE}.mp4
@@ -26,7 +26,7 @@ case "$SELECT" in
       3)
 	function TITLE {
             yt-dlp --get-title ${URL}
-	}
+            }
 	yt-dlp --console-title  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
 	ffmpeg ${TITLE}.mp4 ${TITLE}.wav
 	rm ${TITLE}.mp4

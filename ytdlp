@@ -16,7 +16,7 @@ case "$SELECT" in
 	yt-dlp --console-title --embed-thumbnail --embed-subs --sub-langs "ja" --no-write-auto-subs -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
 	;;
 	2)
-	function TITLE() {
+	function TITLE {
 	yt-dlp --get-title {URL}
 	}
 	yt-dlp --console-title  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1
@@ -24,7 +24,7 @@ case "$SELECT" in
 	rm ${TITLE}.mp4
 	;;
 	3)
-	function TITLE() {
+	function TITLE {
 	yt-dlp --get-title {URL}
 	}
 	yt-dlp --console-title  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b" -o "%(title)s.%(ext)s" ${URL} $1

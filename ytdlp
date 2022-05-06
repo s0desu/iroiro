@@ -11,9 +11,7 @@ read  -p " -> " SELECT
 echo "URL wo nyuuryoku shite kudasai"
 read  -p " -> " URL
 
-function TITLE {
-    yt-dlp --get-title ${URL}
-}
+TITLE=`yt-dlp --get-title ${URL}`
 
 case "$SELECT" in
       1)
